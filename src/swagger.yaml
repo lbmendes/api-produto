@@ -1,9 +1,9 @@
 ---
 swagger: "2.0"
 info:
-  description: "API de Cadastro de Produtos"
-  version: "1.0.0"
-  title: "Cadastro de Produtos"
+  description: "API de Cadastro de Produtos - Nova Versão"
+  version: "2.0.0"
+  title: "Cadastro de Produtos - Nova Versão"
   contact:
     email: "fabricio@veronez.dev"
 paths:
@@ -14,7 +14,7 @@ paths:
         "200":
           description: "Status pronto"
         "500":
-          description: "Status não pronto"  
+          description: "Status não pronto"
   /unreadfor/{seconds}:
     put:
       description: "Atualização de um produto"
@@ -26,7 +26,7 @@ paths:
         type: "string"
       responses:
         "200":
-          description: "OK"   
+          description: "OK"
   /health:
     get:
       description: "Verificação se a aplicação está saudável"
@@ -34,13 +34,13 @@ paths:
         "200":
           description: "Status saudável"
         "500":
-          description: "Status não saudável"    
+          description: "Status não saudável"
   /unhealth:
     put:
       description: "Faz com que a aplicação pare de responder"
       responses:
         "200":
-          description: "Ok" 
+          description: "Ok"
   /stress/{elemento}/tempostress/{tempoStress}/intervalo/{intervalo}/ciclos/{ciclos}:
     put:
       description: "Faz a aplicação consumir mais recurso"
@@ -64,10 +64,10 @@ paths:
         in: "path"
         description: "Número de ciclos de stress"
         required: true
-        type: "string"                        
+        type: "string"
       responses:
         "200":
-          description: "OK"        
+          description: "OK"
   /api/produto/{id}:
     get:
       description: "Listagem de um produto\n"
