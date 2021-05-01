@@ -33,6 +33,6 @@ jobs:
           # Path to the Dockerfile
           file: ./src/Dockerfile
           push: true
-          tags:
+          tags: |
             lbmendes/api-bootcamp-produto:latest
             lbmendes/api-bootcamp-produto:${{github.run_number}}
