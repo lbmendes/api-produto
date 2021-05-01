@@ -2,7 +2,7 @@
 
 name: CI-CD
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
@@ -22,7 +22,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       - name: Docker Login
         # You may pin to the exact commit or the version.
         # uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
@@ -63,7 +63,7 @@ jobs:
           method: kubeconfig
           # Kubernetes Config
           kubeconfig: ${{secrets.K8S_CONFIG}}
-                    
+
       - name: Deploy MongoDB
         uses: Azure/k8s-deploy@v1.3
         with:
@@ -71,4 +71,10 @@ jobs:
           manifests: |
             ./k8s/mongodb/deployment.yaml
             ./k8s/mongodb/service.yaml
-            
+
+      - name: Deploy WebAPI
+        uses: Azure/k8s-deploy@v1.3
+        with:
+          # Path to the manifest files which will be used for deployment.
+          manifests: |
+            ./k8s/api/deployment.yaml
